@@ -1,0 +1,228 @@
+%-----------------------------------------------------------------------
+% Example of use of the isg-poster package
+%
+% Created by Marcelo Carlomagno Carlos <contact@marcelocarlos.com>
+%
+% This template uses baposter.cls and it is based on the examples provided with the package
+%
+% website: https://github.com/marcelocarlosbr/isg-poster
+%-----------------------------------------------------------------------
+\documentclass[landscape,final,a1paper,fontscale=0.325]{baposter}
+
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{url}
+
+\usepackage{graphicx}
+\usepackage{multicol}
+
+%\usepackage{times}
+%\usepackage{helvet}
+%\usepackage{bookman}
+\usepackage{palatino}
+
+\newcommand{\captionfont}{\footnotesize}
+
+
+%--------------------------------------------------------------
+% Multicol Settings
+%--------------------------------------------------------------
+\setlength{\columnsep}{1.5em}
+\setlength{\columnseprule}{0mm}
+
+%--------------------------------------------------------------
+% Save space in lists. Use this after the opening of the list
+%--------------------------------------------------------------
+\newcommand{\compresslist}{%
+\setlength{\itemsep}{1pt}%
+\setlength{\parskip}{0pt}%
+\setlength{\parsep}{0pt}%
+}
+
+%--------------------------------------------------------------
+% Beginning of Document
+%--------------------------------------------------------------
+\begin{document}
+
+%--------------------------------------------------------------
+% FORMATTING 
+% These colours follow rhul's style guidelines
+%--------------------------------------------------------------
+% Primary
+\definecolor{rhulblue}{HTML}{296DC1}
+\definecolor{rhulorange}{HTML}{E55300}
+% Secondary
+\definecolor{rhulpurple}{HTML}{682F73}
+\definecolor{rhulbluedark}{HTML}{003082}
+\definecolor{rhulbluemedium}{HTML}{3E647E}
+\definecolor{rhulbluelight}{HTML}{5BC8E7}
+\definecolor{rhulred}{HTML}{D21034}
+\definecolor{rhulyellow}{HTML}{FFD100}
+\definecolor{rhulgreenlight}{HTML}{87D300}
+\definecolor{rhulgreendark}{HTML}{4F8A10}
+
+\definecolor{gray}{HTML}{E7E7E7}
+
+%--------------------------------------------------------------
+% Here is where the poster starts%--------------------------------------------------------------
+
+%--------------------------------------------------------------
+% Poster settings
+%--------------------------------------------------------------
+\begin{poster}%
+  % Poster Options
+  {
+  % Show grid to help with alignment
+  grid=false,
+  % Column spacing
+  colspacing=1em,
+  % Color style
+  bgColorOne=gray,
+  bgColorTwo=white,
+  borderColor=rhulblue,
+  headerColorOne=rhulblue,
+  headerColorTwo=rhulbluelight,
+  headerFontColor=white,
+  boxColorOne=white,
+  boxColorTwo=rhulbluelight,
+  % Format of textbox
+  textborder=roundedsmall,
+  % Format of text header
+  eyecatcher=true,
+  headerborder=open,
+  headerheight=0.14\textheight,
+%  textfont=\sc, An example of changing the text font
+  headershape=smallrounded,
+  headershade=shadelr,
+  headerfont=\Large\bf\textsc, %Sans Serif
+  textfont={\setlength{\parindent}{1.5em}},
+  boxshade=plain,
+%  background=shade-tb,
+  background=plain,
+  linewidth=1pt
+  }
+  % Eye Catcher
+  {\includegraphics[height=3.6em]{images/rhul-logo}} 
+  % Title
+  {\bf\textsc{Poster title}\vspace{0.16em}}
+  % Authors
+  {\textsc{First Author, Second Author}\vspace{0.12em}\\
+  {\smaller first@email.ac.uk, second@email.ac.uk}}
+  % University logo
+  {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
+    \includegraphics[height=3.85em]{images/isg-logo}
+  }
+
+%--------------------------------------------------------------
+% Now define the boxes that make up the poster
+%--------------------------------------------------------------
+
+%--------------------------------------------------------------
+% Each box has a name and can be placed absolutely or relatively.
+% The only inconvenience is that you can only specify a relative position 
+% towards an already declared box. So if you have a box attached to the 
+% bottom, one to the top and a third one which should be in between, you 
+% have to specify the top and bottom boxes before you specify the middle 
+% box.
+%--------------------------------------------------------------
+
+%--------------------------------------------------------------
+% Section 01
+%--------------------------------------------------------------
+  \headerbox{Section 01}{name=s01,column=0,row=0}{
+   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vulputate malesuada tortor in consectetur. Nunc congue ultricies arcu sed molestie. Sed in purus quis metus iaculis dictum suscipit non libero. Pellentesque vel augue ipsum. Suspendisse varius arcu vel ligula pellentesque ut suscipit dui condimentum. Class aptent taciti sociosqu ad. 
+   \begin{enumerate}\compresslist
+      \item Lorem ipsum dolor sit amet
+      \item Suspendisse varius arcu vel ligula pellentesque
+      \item Etiam feugiat placerat varius
+   \end{enumerate}
+ }
+
+%--------------------------------------------------------------
+% Section 02
+%--------------------------------------------------------------
+  \headerbox{Section 02}{name=s02,column=1,row=0,bottomaligned=s01}{
+   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vulputate malesuada tortor in consectetur. Nunc congue ultricies arcu sed molestie. Sed in purus quis metus iaculis dictum suscipit non libero. Pellentesque vel augue ipsum. Suspendisse varius arcu vel ligula pellentesque ut suscipit dui condimentum. 
+   \begin{enumerate}\compresslist
+      \item Lorem ipsum dolor sit amet
+      \item Suspendisse varius arcu vel ligula pellentesque
+      \item Etiam feugiat placerat varius
+   \end{enumerate}
+
+  }
+
+%--------------------------------------------------------------
+% Section 03
+%--------------------------------------------------------------
+\headerbox{Section 03}{name=s03,column=2,span=2,row=0,bottomaligned=s01}{
+   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vulputate malesuada tortor in consectetur. Nunc congue ultricies arcu sed molestie. Sed in purus quis metus iaculis dictum suscipit non libero. Pellentesque vel augue ipsum. Suspendisse varius arcu vel ligula pellentesque ut suscipit dui condimentum.
+   \begin{enumerate}\compresslist
+      \item Lorem ipsum dolor sit amet
+      \item Suspendisse varius arcu vel ligula pellentesque
+      \item Etiam feugiat placerat varius
+   \end{enumerate}
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vulputate malesuada tortor in consectetur. Nunc congue ultricies arcu sed molestie. Sed in purus quis metus iaculis dictum suscipit non libero. Pellentesque vel augue ipsum. Suspendisse varius arcu vel ligula pellentesque ut suscipit dui condimentum. 
+
+}
+
+%--------------------------------------------------------------
+% Section 04
+%--------------------------------------------------------------
+  \headerbox{Section 04}{name=s04,column=0,row=0,below=s01,above=bottom}{
+   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vulputate malesuada tortor in consectetur. Nunc congue ultricies arcu sed molestie. Sed in purus quis metus iaculis dictum suscipit non libero. Pellentesque vel augue ipsum. Suspendisse varius arcu vel ligula pellentesque ut suscipit dui condimentum. 
+   \begin{enumerate}\compresslist
+      \item Lorem ipsum dolor sit amet
+      \item Suspendisse varius arcu vel ligula pellentesque
+      \item Etiam feugiat placerat varius
+   \end{enumerate}
+ }
+
+%--------------------------------------------------------------
+% Section 05
+%--------------------------------------------------------------
+  \headerbox{Section 05}{name=s05,column=1,row=0,below=s02,above=bottom}{
+   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vulputate malesuada tortor in consectetur. Nunc congue ultricies arcu sed molestie. Sed in purus quis metus iaculis dictum suscipit non libero. Pellentesque vel augue ipsum. Suspendisse varius arcu vel ligula pellentesque ut suscipit dui condimentum. 
+    \begin{enumerate}\compresslist
+      \item Lorem ipsum dolor sit amet
+      \item Suspendisse varius arcu vel ligula pellentesque
+      \item Etiam feugiat placerat varius
+   \end{enumerate}
+
+  }
+
+%--------------------------------------------------------------
+% Section 06
+%--------------------------------------------------------------
+  \headerbox{Section 06}{name=s06,column=2,row=0,below=s03,above=bottom}{
+   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vulputate malesuada tortor in consectetur. Nunc congue ultricies arcu sed molestie. Sed in purus quis metus iaculis dictum suscipit non libero. Pellentesque vel augue ipsum. Suspendisse varius arcu vel ligula pellentesque ut suscipit dui condimentum.
+   \begin{enumerate}\compresslist
+      \item Lorem ipsum dolor sit amet
+      \item Suspendisse varius arcu vel ligula pellentesque
+      \item Etiam feugiat placerat varius
+   \end{enumerate}
+
+}
+
+%--------------------------------------------------------------
+% Section 07
+%--------------------------------------------------------------
+  \headerbox{Section 07}{name=s07,column=3,row=0,below=s03}{
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vulputate malesuada tortor in consectetur. Nunc congue ultricies arcu sed molestie.
+}
+
+%--------------------------------------------------------------
+% Section 08
+%--------------------------------------------------------------
+  \headerbox{Section 08}{name=s08,column=3,row=0,below=s07,above=bottom}{
+   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vulputate malesuada tortor in consectetur. Nunc congue ultricies arcu sed molestie. Sed in purus quis metus iaculis dictum suscipit non libero. Pellentesque vel augue ipsum.
+
+}
+
+\end{poster}
+
+\end{document}
